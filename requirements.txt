@@ -1,0 +1,12 @@
+﻿# Python for Data Science (PDS) - Academic Project Requirements
+# Core Academic & Mathematical Stack (Pure NumPy First-Principles)
+numpy>=1.22.0
+pandas>=1.4.0
+matplotlib>=3.5.0
+jupyter>=1.0.0
+reportlab>=4.0.0
+pytest>=7.0.0
+
+# Optional: Head-to-Head Industry Benchmark Validation
+scikit-learn>=1.0.0
+xgboost>=1.6.0

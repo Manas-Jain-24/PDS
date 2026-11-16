@@ -19,15 +19,14 @@ Evaluated on the benchmark **ULB European Cardholders dataset** (284,807 transac
 
 ---
 
-## 🏛️ Course Rubric Alignment (50 Marks)
+## 🏛️ Course Rubric Alignment (50 Marks) — Group: `Project_13`
 
-| Evaluation Dimension | Weight | Academic Requirement | Our Implementation |
-| :--- | :---: | :--- | :--- |
-| **Problem Statement & Theory** | 10% (5 Marks) | Rigorous mathematical formulation of imbalanced classification, cost-asymmetric loss, and decision theory. | Derived in `report/report.tex` and demonstrated across notebooks with formal LaTeX equations. |
-| **From-Scratch Implementation** | 20% (10 Marks) | Strict rule: algorithms built from first principles in NumPy without `sklearn.linear_model`, `sklearn.tree`, etc. | 7 distinct architectures (LogReg, Cost-Sensitive LogReg, Deep MLP, GBDT, Anomaly Detector, Soft-Voting, Stacking) in pure NumPy. |
-| **Experimental Analysis & Results** | 10% (5 Marks) | Empirical validation, confusion matrices, ROC-AUC, thresholding, and comparative benchmarks. | Single-split evaluation, 100-run, and 1,000-run Monte Carlo simulations modeling empirical variance and Value-at-Risk ($VaR_{99%}$). |
-| **LaTeX Report & Formatting** | 10% (5 Marks) | Professional LaTeX document with IEEE/ACM formatting, contribution tables, formal math, and citations. | Publication-quality document in `report/report.tex` ready for Overleaf compilation and Turnitin verification. |
-| **Oral Defense / Viva & Demo** | 50% (25 Marks) | Clear verbal explanation of algorithmic trade-offs, code walkthrough, and practical insights. | Documented below in Section 7 with exact viva preparation questions and answers. |
+| Evaluation Dimension | Weight | Marks | Academic Requirement | Our Implementation |
+| :--- | :---: | :---: | :--- | :--- |
+| **2(a) Theory & Problem Statement** | 10% | 10 Marks | Rigorous mathematical formulation of imbalanced classification, log-loss derivation, and gradient updates. | Fully derived in `report/report.tex` and demonstrated across notebooks with formal equations. |
+| **2(b) From-Scratch Implementation** | 20% | 20 Marks | Strict rule: algorithms built from first principles in pure NumPy without ML libraries. Submit only as Python notebook. | Pure NumPy implementations of Logistic Regression, Cost-Sensitive LogReg, Decision Tree, Random Forest, KNN, Deep MLP, GBDT, and Ensemble. |
+| **2(c) Experimental Results** | 10% | 10 Marks | Empirical validation on Kaggle dataset, confusion matrices, ROC-AUC, thresholding, and comparative benchmarks. | Evaluated on held-out test splits, convergence trajectories, threshold trade-offs, and multi-model benchmark. |
+| **2(d) LaTeX Report & Formatting** | 10% | 10 Marks | Professional LaTeX document with title page, team details, submission date, contributions table, and citations. | Publication-quality document in `report/report.tex` configured for Group 13 and ready for submission. |
 
 ---
 

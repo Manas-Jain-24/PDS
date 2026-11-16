@@ -19,9 +19,9 @@
 % --- Hyperlink Settings ---
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue!70!black,
-    citecolor=blue!70!black,
-    urlcolor=teal!70!black
+    linkcolor=blue!75!black,
+    citecolor=blue!75!black,
+    urlcolor=teal!75!black
 }
 
 % --- Code Listing Styling ---
@@ -46,8 +46,8 @@
 % --- Header & Footer Settings ---
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\small Project Submission: Credit Card Fraud Detection}
-\rhead{\small Group: \texttt{Project\_XXX}}
+\lhead{\small IIIT Sri City --- PDS Project: Credit Card Fraud Detection}
+\rhead{\small Group: \texttt{Project\_13}}
 \cfoot{\thepage}
 
 \begin{document}
@@ -57,53 +57,61 @@
 % ==============================================================================
 \begin{titlepage}
     \centering
-    \vspace*{1.5cm}
+    \vspace*{0.8cm}
     
+    {\Large \textbf{Indian Institute of Information Technology Sri City, Chittoor}\par}
+    \vspace{0.3cm}
+    {\large Monsoon 2026 \textbullet{} Course: \textbf{Python for Data Science (PDS)}\par}
+    \vspace{1.0cm}
+    
+    \rule{\linewidth}{0.6mm}
+    \vspace{0.6cm}
     {\Huge \bfseries Credit Card Fraud Detection Using Machine Learning\par}
     \vspace{0.4cm}
     {\Large \itshape A First-Principles Mathematical Formulation and from-Scratch Algorithmic Implementation\par}
-    
-    \vspace{1.2cm}
+    \vspace{0.6cm}
     \rule{\linewidth}{0.6mm}
+    
     \vspace{0.8cm}
-    
-    {\large \textbf{Course Code \& Title:}}\\[0.2cm]
-    {\large Machine Learning / Data Science Project}\\[0.6cm]
-    
-    {\large \textbf{Submission ID:}}\\[0.2cm]
-    {\large \texttt{Project\_XXX}}\\[1.0cm]
+    {\large \textbf{Submission Identifier:}} \texttt{Project\_13}\\[0.2cm]
+    {\normalsize \textbf{Assigned Dataset:} Kaggle Credit Card Fraud Detection Benchmark (ULB MLG Dataset)}\\[0.8cm]
     
     % Team Details
-    {\large \textbf{Team Members \& Academic Credentials:}}\\[0.4cm]
-    \begin{tabular}{llr}
+    {\large \textbf{Team Members \& Academic Credentials:}}\\[0.3cm]
+    \begin{tabular}{lllc}
         \toprule
-        \textbf{Student Full Name} & \textbf{Roll / Student ID} & \textbf{Institutional Email} \\
+        \textbf{Student Full Name} & \textbf{Roll Number} & \textbf{Institutional Email} & \textbf{Program} \\
         \midrule
-        Student Name 1 & 202X-XX-XXX & student1@university.edu \\
-        Student Name 2 & 202X-XX-XXX & student2@university.edu \\
-        Student Name 3 & 202X-XX-XXX & student3@university.edu \\
+        \textbf{Kanishk Gorana} (Group Lead) & S20240030378 & \texttt{kanishk.g24@iiits.in} & B.Tech UG3 \\
+        \textbf{Manas Vinod Jain} & S20240030387 & \texttt{manas.v24@iiits.in} & B.Tech UG3 \\
+        \textbf{Almaas Chaudhary} & S20240030349 & \texttt{almaaschaudhary.s24@iiits.in} & B.Tech UG3 \\
+        \textbf{Kumthe Kartik Sanjay} & S20240030383 & \texttt{kartiksanjay.k24@iiits.in} & B.Tech UG3 \\
         \bottomrule
     \end{tabular}
     
-    \vspace{1.0cm}
+    \vspace{0.8cm}
     
     % Individual Contribution Summary
     {\large \textbf{Individual Contribution Summary:}}\\[0.3cm]
-    \begin{tabularx}{0.85\linewidth}{lX}
+    \begin{tabularx}{0.96\linewidth}{lX}
         \toprule
-        \textbf{Member} & \textbf{Primary Assigned Responsibilities} \\
+        \textbf{Member} & \textbf{Assigned Technical Responsibilities and Deliverables} \\
         \midrule
-        Student 1 & Problem Formulation, Mathematical Derivation of BCE Loss and Gradient Vector Updates (Component 2a). \\
-        Student 2 & End-to-End Implementation of Preprocessing and Logistic Regression Algorithms from Scratch in NumPy (Component 2b). \\
-        Student 3 & Experimental Analysis, Threshold Trade-off Tuning, ROC-AUC Computations, and LaTeX Report Formatting (Component 2c \& 2d). \\
+        \textbf{Manas Vinod Jain} & Coordination and notebook integration; problem formulation and derivations; logistic and cost-sensitive objectives; ensemble design and validation-based selection; final technical review. \\
+        \addlinespace
+        \textbf{Kanishk Gorana} & Dataset audit and stratified split design; training-only standardisation and from-scratch SMOTE; input validation and reproducibility checks. \\
+        \addlinespace
+        \textbf{Kumthe Kartik Sanjay} & Neural network (forward pass, backpropagation, momentum) and gradient boosted trees (residual-fitting trees, Newton leaves); training experiments; hyperparameter documentation and numerical checks. \\
+        \addlinespace
+        \textbf{Almaas Chaudhary} & Isolation forest implementation and analysis; metrics, threshold search, result tables and figures; report organisation, formatting and references. \\
         \bottomrule
     \end{tabularx}
     
     \vfill
-    \rule{\linewidth}{0.4mm}\\[0.3cm]
-    {\large \textbf{Date of Submission:} November 15, 2026}\\[0.2cm]
-    {\small Submitted in partial fulfillment of the academic requirements.}\\
-    {\small Checked for academic originality via Turnitin.}
+    \rule{\linewidth}{0.4mm}\\[0.25cm]
+    {\large \textbf{Date of Submission:} November 15, 2026}\\[0.15cm]
+    {\small Submitted in partial fulfillment of the requirements for Python for Data Science.}\\[0.1cm]
+    {\footnotesize Verified for academic originality and compliance with course rubrics.}
     
 \end{titlepage}
 
@@ -117,27 +125,37 @@
 \section{Introduction and Problem Formulation}
 \label{sec:introduction}
 
-Credit card fraud represents one of the most critical challenges facing contemporary automated financial systems, accounting for billions of dollars in annual global losses. With digital transaction volumes accelerating worldwide, manual transaction auditing has become impossible. Consequently, intelligent, real-time Machine Learning (ML) classifiers must be deployed at the transaction gateway to detect fraudulent transactions instantaneously.
+Automated payment networks handle billions of currency transfers daily. A small fraction of these transactions represents illicit actions, commonly referred to as credit card fraud. Detecting anomalous activity in real time is essential to minimize financial liability, prevent merchant chargeback penalties, and preserve cardholder trust.
 
-From a statistical learning perspective, credit card fraud detection is formulated as a \textbf{supervised binary classification} problem. Let $\mathcal{D} = \{(\mathbf{x}^{(i)}, y^{(i)})\}_{i=1}^m$ denote a dataset containing $m$ observed transactions, where:
+In statistical learning, fraud identification is cast as a \textbf{supervised binary classification task}. Let our transactional universe be represented by an observed dataset:
+\begin{equation}
+    \mathcal{D} = \left\{ \left(\mathbf{x}^{(i)}, y^{(i)}\right) \right\}_{i=1}^m
+\end{equation}
+where each transaction index $i \in \{1, \dots, m\}$ comprises:
 \begin{itemize}
-    \item $\mathbf{x}^{(i)} \in \mathbb{R}^d$ represents the feature vector describing the $i$-th transaction, comprising continuous attributes such as anonymized principal components $V_1, V_2, \dots, V_d$, normalized transaction time elapsed, and transaction currency value.
-    \item $y^{(i)} \in \{0, 1\}$ represents the ground-truth binary label:
+    \item A feature vector $\mathbf{x}^{(i)} \in \mathbb{R}^d$ representing $d$ measured predictors, consisting of anonymized linear principal components $V_1, V_2, \dots, V_{28}$ derived via Principal Component Analysis (PCA) to maintain customer privacy, alongside transaction timestamp elapsed and transaction fiat amount.
+    \item A binary indicator variable $y^{(i)} \in \{0, 1\}$ denoting the ground-truth classification state:
     \begin{equation}
         y^{(i)} = \begin{cases}
-            0, & \text{if transaction is legitimate (genuine)}, \\
-            1, & \text{if transaction is fraudulent}.
+            0, & \text{if the transaction is authorized and legitimate}, \\
+            1, & \text{if the transaction represents an unauthorized fraud attempt}.
         \end{cases}
     \end{equation}
 \end{itemize}
 
-\subsection{The Challenge of Extreme Class Imbalance}
-Financial fraud datasets are plagued by severe \textbf{class asymmetry}. Genuine transactions routinely represent greater than $99.8\%$ of total transaction traffic, whereas confirmed fraudulent attempts constitute less than $0.2\%$. 
+\subsection{The Imbalance Paradigm and the Accuracy Paradox}
+A central characteristic of payment transaction corpora is severe \textbf{class skewness}. In the benchmark dataset collected by the Machine Learning Group (MLG) of the Université Libre de Bruxelles (ULB), only $492$ out of $284,807$ observations correspond to confirmed fraudulent attempts---a positive prevalence rate of barely $0.1727\%$. 
 
-This structural asymmetry renders traditional classification accuracy completely misleading. A trivial dummy estimator that constantly predicts $\hat{y} = 0$ achieves an apparent accuracy of over $99.8\%$, despite failing to detect even a single fraudulent event. Therefore, learning under imbalance requires two structural strategies:
+This structural disparity invalidates standard overall accuracy as an optimization metric. A naive baseline model that uniformly asserts $\hat{y} = 0$ for all queries attains an apparent accuracy of:
+\begin{equation}
+    \text{Accuracy}_{\text{trivial}} = \frac{284,315}{284,807} \approx 99.827\%
+\end{equation}
+despite missing $100\%$ of fraudulent transactions. 
+
+To overcome this fundamental challenge, our methodology implements a dual-tiered intervention:
 \begin{enumerate}
-    \item \textbf{Data-Level Intervention:} Balancing training class frequencies using Random Undersampling prior to gradient parameter updates.
-    \item \textbf{Metric-Level Precision:} Rigorous evaluation utilizing Sensitivity (Recall), Precision, F1-Score, and Area Under the Receiver Operating Characteristic Curve (ROC-AUC).
+    \item \textbf{Data-Level Equilibrium:} Constructing balanced training distributions via controlled random undersampling of majority instances while holding out an untouched testing subset reflecting operational distributions.
+    \item \textbf{Asymmetric Diagnostic Metrics:} Prioritizing Sensitivity (Recall), Precision, F1-Score, and Receiver Operating Characteristic Area Under Curve (ROC-AUC) over raw accuracy.
 \end{enumerate}
 
 % ==============================================================================
@@ -146,85 +164,92 @@ This structural asymmetry renders traditional classification accuracy completely
 \section{Theoretical Foundations and Mathematical Derivation}
 \label{sec:theory}
 
-In compliance with Component 2(a) of the evaluation plan, this section provides a self-contained, formal mathematical account of the theory underlying our classification pipeline.
+In accordance with Component 2(a) of the project rubric, this section presents the rigorous mathematical foundation and gradient derivations for the parametric classification pipeline.
 
-\subsection{Hypothesis Function and the Sigmoid Activation}
-Logistic Regression models the posterior probability of fraud conditioned on the input feature vector $\mathbf{x}$ using the linear predictor followed by the Sigmoid function $\sigma(z)$:
+\subsection{Hypothesis Function and Sigmoidal Mapping}
+Logistic Regression establishes a parametric model for the posterior class probability $P(y = 1 \mid \mathbf{x})$ by composing a linear logit function with the non-linear Sigmoid activation $\sigma(z)$:
 \begin{equation}
-    P(y = 1 \mid \mathbf{x}; \mathbf{w}, b) = \hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+    \hat{y} = P(y = 1 \mid \mathbf{x}; \mathbf{w}, b) = \sigma(z) = \frac{1}{1 + e^{-z}}
+    \label{eq:sigmoid}
 \end{equation}
-where the linear logit $z$ is parameterized by the weight vector $\mathbf{w} \in \mathbb{R}^d$ and scalar bias $b \in \mathbb{R}$:
+where the logit scalar $z \in \mathbb{R}$ is the affine combination of input features parameterized by weight coefficients $\mathbf{w} \in \mathbb{R}^d$ and scalar bias intercept $b \in \mathbb{R}$:
 \begin{equation}
     z = \mathbf{w}^T \mathbf{x} + b = \sum_{j=1}^d w_j x_j + b
 \end{equation}
 
-A fundamental property of the Sigmoid function is its derivative, which is expressed purely in terms of its output:
+A convenient mathematical property of the Sigmoid activation lies in its first derivative, which expresses directly through its activation output:
 \begin{align}
-    \frac{d\sigma}{dz} &= \frac{d}{dz} \left( (1 + e^{-z})^{-1} \right) \nonumber \\
+    \frac{d\sigma(z)}{dz} &= \frac{d}{dz} \left( 1 + e^{-z} \right)^{-1} \nonumber \\
     &= -(1 + e^{-z})^{-2} \cdot (-e^{-z}) = \frac{e^{-z}}{(1 + e^{-z})^2} \nonumber \\
-    &= \frac{1}{1 + e^{-z}} \cdot \frac{e^{-z}}{1 + e^{-z}} = \sigma(z) \cdot (1 - \sigma(z))
+    &= \left(\frac{1}{1 + e^{-z}}\right) \left(\frac{e^{-z}}{1 + e^{-z}}\right) = \sigma(z) \cdot \left(1 - \sigma(z)\right)
     \label{eq:sigmoid_deriv}
 \end{align}
 
 \subsection{Maximum Likelihood Estimation and Binary Cross-Entropy Loss}
-Assuming that individual transaction outcomes $y^{(i)}$ are independent and conditionally distributed according to a Bernoulli distribution with parameter $\hat{y}^{(i)}$, the likelihood of the training dataset is:
+Under the assumption that transaction instances represent mutually independent Bernoulli trials, the conditional likelihood of observing the target response vector $\mathbf{y}$ given parameter set $\boldsymbol{\theta} = \{\mathbf{w}, b\}$ is expressed as:
 \begin{equation}
-    L(\mathbf{w}, b) = \prod_{i=1}^m (\hat{y}^{(i)})^{y^{(i)}} (1 - \hat{y}^{(i)})^{1 - y^{(i)}}
+    L(\mathbf{w}, b) = \prod_{i=1}^m \left(\hat{y}^{(i)}\right)^{y^{(i)}} \left(1 - \hat{y}^{(i)}\right)^{1 - y^{(i)}}
 \end{equation}
-Taking the natural logarithm yields the log-likelihood:
+Transforming the joint likelihood into log space yields the log-likelihood objective:
 \begin{equation}
-    \ln L(\mathbf{w}, b) = \sum_{i=1}^m \left[ y^{(i)} \ln(\hat{y}^{(i)}) + (1 - y^{(i)}) \ln(1 - \hat{y}^{(i)}) \right]
+    \ell(\mathbf{w}, b) = \sum_{i=1}^m \left[ y^{(i)} \ln\left(\hat{y}^{(i)}\right) + \left(1 - y^{(i)}\right) \ln\left(1 - \hat{y}^{(i)}\right) \right]
 \end{equation}
-By negating the average log-likelihood, we arrive at the \textbf{Binary Cross-Entropy (BCE) Loss Function} to be minimized:
+Minimizing the negative empirical average log-likelihood, augmented with an $L_2$ Tikhonov parameter regularizer with penalty coefficient $\lambda \ge 0$, produces the formal \textbf{Binary Cross-Entropy (BCE) Loss Function}:
 \begin{equation}
-    \mathcal{L}(\mathbf{w}, b) = -\frac{1}{m} \sum_{i=1}^m \left[ y^{(i)} \ln(\hat{y}^{(i)}) + (1 - y^{(i)}) \ln(1 - \hat{y}^{(i)}) \right] + \frac{\lambda}{2m} \|\mathbf{w}\|_2^2
+    \mathcal{L}(\mathbf{w}, b) = -\frac{1}{m} \sum_{i=1}^m \left[ y^{(i)} \ln\left(\hat{y}^{(i)}\right) + \left(1 - y^{(i)}\right) \ln\left(1 - \hat{y}^{(i)}\right) \right] + \frac{\lambda}{2m} \|\mathbf{w}\|_2^2
     \label{eq:bce_loss}
 \end{equation}
-where $\lambda \ge 0$ is an optional $L_2$ regularization penalty mitigating parameter divergence.
 
-\subsection{Derivation of Analytical Gradients via the Chain Rule}
-To update parameters using gradient descent, we calculate the partial derivatives of $\mathcal{L}$ with respect to $w_j$ and $b$. Let $\mathcal{L}^{(i)}$ represent the loss on sample $i$:
+\subsection{Analytical Gradient Derivation via Multivariate Chain Rule}
+To minimize $\mathcal{L}(\mathbf{w}, b)$ with respect to individual parameter components, we compute exact partial derivatives. Let $\mathcal{L}^{(i)}$ represent the loss contribution of observation $i$:
 \begin{equation}
-    \mathcal{L}^{(i)} = -\left[ y^{(i)} \ln(\hat{y}^{(i)}) + (1 - y^{(i)}) \ln(1 - \hat{y}^{(i)}) \right]
+    \mathcal{L}^{(i)} = -\left[ y^{(i)} \ln\left(\hat{y}^{(i)}\right) + \left(1 - y^{(i)}\right) \ln\left(1 - \hat{y}^{(i)}\right) \right]
 \end{equation}
 Applying the multivariate chain rule:
 \begin{equation}
     \frac{\partial \mathcal{L}^{(i)}}{\partial w_j} = \frac{\partial \mathcal{L}^{(i)}}{\partial \hat{y}^{(i)}} \cdot \frac{\partial \hat{y}^{(i)}}{\partial z^{(i)}} \cdot \frac{\partial z^{(i)}}{\partial w_j}
 \end{equation}
-Calculating each component term:
+
+Evaluating each partial derivative component:
 \begin{align}
-    \frac{\partial \mathcal{L}^{(i)}}{\partial \hat{y}^{(i)}} &= -\frac{y^{(i)}}{\hat{y}^{(i)}} + \frac{1 - y^{(i)}}{1 - \hat{y}^{(i)}} = \frac{\hat{y}^{(i)} - y^{(i)}}{\hat{y}^{(i)}(1 - \hat{y}^{(i)})} \\
-    \frac{\partial \hat{y}^{(i)}}{\partial z^{(i)}} &= \hat{y}^{(i)}(1 - \hat{y}^{(i)}) \quad \text{(from Equation~\ref{eq:sigmoid_deriv})} \\
+    \frac{\partial \mathcal{L}^{(i)}}{\partial \hat{y}^{(i)}} &= -\frac{y^{(i)}}{\hat{y}^{(i)}} + \frac{1 - y^{(i)}}{1 - \hat{y}^{(i)}} = \frac{\hat{y}^{(i)} - y^{(i)}}{\hat{y}^{(i)}\left(1 - \hat{y}^{(i)}\right)} \\
+    \frac{\partial \hat{y}^{(i)}}{\partial z^{(i)}} &= \hat{y}^{(i)}\left(1 - \hat{y}^{(i)}\right) \quad \text{(from Equation~\ref{eq:sigmoid_deriv})} \\
     \frac{\partial z^{(i)}}{\partial w_j} &= x_j^{(i)}, \qquad \frac{\partial z^{(i)}}{\partial b} = 1
 \end{align}
-Multiplying the intermediate derivatives results in an elegant cancellation:
+
+Multiplying the chain-rule terms results in a simplification where the denominator cancels:
 \begin{equation}
-    \frac{\partial \mathcal{L}^{(i)}}{\partial w_j} = \left(\frac{\hat{y}^{(i)} - y^{(i)}}{\hat{y}^{(i)}(1 - \hat{y}^{(i)})}\right) \cdot \left(\hat{y}^{(i)}(1 - \hat{y}^{(i)})\right) \cdot x_j^{(i)} = (\hat{y}^{(i)} - y^{(i)}) x_j^{(i)}
+    \frac{\partial \mathcal{L}^{(i)}}{\partial w_j} = \left(\frac{\hat{y}^{(i)} - y^{(i)}}{\hat{y}^{(i)}\left(1 - \hat{y}^{(i)}\right)}\right) \cdot \left(\hat{y}^{(i)}\left(1 - \hat{y}^{(i)}\right)\right) \cdot x_j^{(i)} = \left(\hat{y}^{(i)} - y^{(i)}\right) x_j^{(i)}
 \end{equation}
 
-Averaging across all $m$ training observations and incorporating vector matrix notation:
+Aggregating across all $m$ training instances and incorporating the regularizer derivative yields the vectorized gradient formulation:
 \begin{equation}
-    \nabla_{\mathbf{w}} \mathcal{L} = \frac{1}{m} \mathbf{X}^T (\hat{\mathbf{y}} - \mathbf{y}) + \frac{\lambda}{m} \mathbf{w}
+    \nabla_{\mathbf{w}} \mathcal{L} = \frac{1}{m} \mathbf{X}^T \left(\hat{\mathbf{y}} - \mathbf{y}\right) + \frac{\lambda}{m} \mathbf{w}
     \label{eq:grad_w}
 \end{equation}
 \begin{equation}
-    \frac{\partial \mathcal{L}}{\partial b} = \frac{1}{m} \sum_{i=1}^m (\hat{y}^{(i)} - y^{(i)})
+    \frac{\partial \mathcal{L}}{\partial b} = \frac{1}{m} \sum_{i=1}^m \left(\hat{y}^{(i)} - y^{(i)}\right)
     \label{eq:grad_b}
 \end{equation}
 
 \subsection{Parameter Optimization via Batch Gradient Descent}
-Model parameters are updated iteratively against the gradient direction scaled by the learning rate $\alpha > 0$:
+Parameters are updated synchronously along the steepest descent gradient vector scaled by positive learning rate $\alpha$:
 \begin{align}
     \mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \alpha \nabla_{\mathbf{w}} \mathcal{L} \\
     b^{(t+1)} &= b^{(t)} - \alpha \frac{\partial \mathcal{L}}{\partial b}
 \end{align}
 
-\subsection{Feature Standardization (Z-Score Normalization)}
-Because gradient descent step paths depend on the conditioning of the feature covariance matrix, unstandardized features with divergent variances (e.g., transaction Amount vs. PCA coefficients) result in elongated contours and oscillating optimization trajectories. We enforce Z-score normalization:
+\subsection{Theoretical Extension: Cost-Sensitive Weighted Loss}
+In operational banking fraud prevention, misclassification consequences are asymmetric. Failing to detect a fraudulent charge (False Negative, FN) causes immediate monetary loss and dispute overhead, whereas initiating a cardholder confirmation request on a legitimate charge (False Positive, FP) incurs negligible automated communication cost. 
+
+To model this asymmetry theoretically, we define the cost-weighted objective:
 \begin{equation}
-    x_{j,\text{norm}} = \frac{x_j - \mu_j}{\sigma_j}
+    \mathcal{L}_{\text{CS}}(\mathbf{w}, b) = -\frac{1}{m} \sum_{i=1}^m \left[ c_{\text{fn}} \cdot y^{(i)} \ln\left(\hat{y}^{(i)}\right) + \left(1 - y^{(i)}\right) \ln\left(1 - \hat{y}^{(i)}\right) \right]
 \end{equation}
-where $\mu_j = \frac{1}{m} \sum_{i=1}^m x_{i,j}$ and $\sigma_j = \sqrt{\frac{1}{m} \sum_{i=1}^m (x_{i,j} - \mu_j)^2}$.
+where $c_{\text{fn}} > 1$ represents the monetary penalty multiplier for undetected fraud. The corresponding gradient scales positive sample errors:
+\begin{equation}
+    \nabla_{\mathbf{w}} \mathcal{L}_{\text{CS}} = \frac{1}{m} \mathbf{X}^T \left( (\hat{\mathbf{y}} - \mathbf{y}) \odot \left[ (c_{\text{fn}} - 1)\mathbf{y} + \mathbf{1} \right] \right)
+\end{equation}
 
 % ==============================================================================
 % SECTION 3: IMPLEMENTATION DETAILS (Component 2b - 20%)
@@ -232,43 +257,41 @@ where $\mu_j = \frac{1}{m} \sum_{i=1}^m x_{i,j}$ and $\sigma_j = \sqrt{\frac{1}{
 \section{Implementation from Scratch (Without Library Packages)}
 \label{sec:implementation}
 
-In strict adherence to Component 2(b) of the evaluation plan, our code avoids black-box libraries like \texttt{scikit-learn}, \texttt{xgboost}, or \texttt{imblearn} for machine learning models and metrics. The entire pipeline is written in pure \texttt{NumPy}.
+In strict adherence to Component 2(b) of the project rubric, high-level machine learning libraries (\texttt{scikit-learn}, \texttt{xgboost}, \texttt{lightgbm}, \texttt{imblearn}) were excluded from the core pipeline. All algorithms, transformation scalers, loss functions, optimization routines, and validation metrics were constructed directly using pure \texttt{NumPy}.
 
-\subsection{Modular Architectural Design}
-Our architecture consists of four native components:
+\subsection{Architecture of the From-Scratch Pipeline}
+The computational pipeline is structured into five native modules:
 \begin{enumerate}
-    \item \textbf{Dataset Resampler (\texttt{undersample\_dataset}):} Selects a uniform random subset of majority class records matching the minority fraud volume, yielding a 50:50 class balance.
-    \item \textbf{Dataset Partitioner (\texttt{train\_test\_split\_scratch}):} Applies pseudorandom index permutation to split features and labels into training ($80\%$) and testing ($20\%$) subsets without cross-set leakage.
-    \item \textbf{Z-Score Scaler (\texttt{StandardScalerScratch}):} Computes mean vector $\boldsymbol{\mu}$ and standard deviation $\boldsymbol{\sigma}$ on training data only, and standardizes test features using training statistics.
-    \item \textbf{Logistic Regression Engine (\texttt{LogisticRegressionScratch}):} Implements forward propagation, log-loss computation with $\epsilon$-clipping, vectorized backpropagation, and convergence tracking.
+    \item \textbf{Controlled Dataset Undersampling (\texttt{undersample\_dataset}):} Selects a uniform random subset of majority genuine transactions matching the minority fraud volume, establishing a 50:50 class balance for training stability without third-party resampling libraries.
+    \item \textbf{Train-Test Splitting Routine (\texttt{train\_test\_split\_scratch}):} Implements pseudorandom array index permutation to split observations into an $80\%$ training split and a $20\%$ evaluation split while preventing data leakage across subsets.
+    \item \textbf{StandardScaler from First Principles (\texttt{StandardScalerScratch}):} Computes feature column mean vector $\boldsymbol{\mu} \in \mathbb{R}^d$ and sample standard deviation vector $\boldsymbol{\sigma} \in \mathbb{R}^d$ exclusively on the training partition:
+    \begin{equation}
+        \mu_j = \frac{1}{m} \sum_{i=1}^m x_{i,j}, \qquad \sigma_j = \sqrt{\frac{1}{m} \sum_{i=1}^m (x_{i,j} - \mu_j)^2 + 10^{-8}}
+    \end{equation}
+    and applies the standardization affine transform $x_{\text{norm}} = (x - \mu)/\sigma$ across both training and test matrices.
+    \item \textbf{Logistic Regression Engine (\texttt{LogisticRegressionScratch}):} Encapsulates forward linear combination, clipped sigmoidal activation, loss monitoring, vectorized gradient calculation, and iterative parameter updates.
+    \item \textbf{Metric Evaluation Suite (\texttt{evaluate\_metrics\_scratch}):} Native implementations of Confusion Matrix counts (TP, FP, TN, FN), Sensitivity (Recall), Precision, Specificity, F1-Score, and threshold-swept Area Under the ROC Curve.
 \end{enumerate}
 
-\subsection{Numerical Stability Safeguards}
-In from-scratch numerical computing, two common numerical exceptions arise:
+\subsection{Numerical Stability Mechanisms}
+Direct algorithmic implementations in floating-point arithmetic can encounter stability issues. Two specific mechanisms were built into the engine:
 \begin{itemize}
-    \item \textbf{Exponent Overflow:} Evaluating $e^{-z}$ for large negative $z$ causes floating-point overflow. We resolve this by clipping logit values:
+    \item \textbf{Logit Exponent Bounding:} Evaluating $\exp(-z)$ for large negative logits $z \ll 0$ induces standard IEEE floating-point overflow. We constrain logits within $[-500.0, 500.0]$ prior to exponentiation:
     \begin{lstlisting}[language=Python]
-z_clipped = np.clip(z, -500.0, 500.0)
-return 1.0 / (1.0 + np.exp(-z_clipped))
+z_bounded = np.clip(z, -500.0, 500.0)
+y_hat = 1.0 / (1.0 + np.exp(-z_bounded))
     \end{lstlisting}
-    \item \textbf{Logarithm of Zero:} Evaluating $\ln(\hat{y})$ when $\hat{y} = 0$ or $\ln(1 - \hat{y})$ when $\hat{y} = 1$ causes \texttt{NaN} propagation. We bound probability predictions with machine epsilon $\epsilon = 10^{-15}$:
+    \item \textbf{Probability Clamping for Log-Loss:} As $\hat{y} \to 0$ or $\hat{y} \to 1$, $\ln(\hat{y})$ and $\ln(1-\hat{y})$ approach $-\infty$, generating invalid \texttt{NaN} values. We bound predicted probabilities within $[\epsilon, 1 - \epsilon]$ where $\epsilon = 10^{-15}$:
     \begin{lstlisting}[language=Python]
-y_pred_clipped = np.clip(y_pred, 1e-15, 1.0 - 1e-15)
+y_hat_safe = np.clip(y_hat, 1e-15, 1.0 - 1e-15)
+loss = -np.mean(y * np.log(y_hat_safe) + (1.0 - y) * np.log(1.0 - y_hat_safe))
     \end{lstlisting}
 \end{itemize}
 
-\subsection{From-Scratch Evaluation Metrics}
-All classification metrics are computed directly from the first-principles confusion matrix:
-\begin{align}
-    \text{Accuracy} &= \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} \\
-    \text{Precision} &= \frac{\text{TP}}{\text{TP} + \text{FP}} \\
-    \text{Recall (Sensitivity)} &= \frac{\text{TP}}{\text{TP} + \text{FN}} \\
-    \text{F1-Score} &= 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-\end{align}
-
-The ROC curve is constructed by sweeping decision threshold $\tau \in [0, 1]$ across 200 discrete evaluations. The Area Under the Curve is integrated using the composite trapezoidal quadrature rule:
+\subsection{Trapezoidal Integration for ROC-AUC}
+Rather than calling \texttt{sklearn.metrics.roc\_auc\_score}, the Receiver Operating Characteristic (ROC) curve is computed by evaluating True Positive Rate (TPR) and False Positive Rate (FPR) across $K = 200$ uniformly spaced discrimination thresholds $\tau \in [0, 1]$. The area under the resulting piecewise linear frontier is integrated using the composite trapezoidal quadrature rule:
 \begin{equation}
-    \text{AUC} = \sum_{k=1}^{K-1} \frac{\text{TPR}_k + \text{TPR}_{k+1}}{2} \cdot (\text{FPR}_{k+1} - \text{FPR}_k)
+    \text{ROC-AUC} = \sum_{k=1}^{K-1} \frac{\text{TPR}_k + \text{TPR}_{k+1}}{2} \cdot \left(\text{FPR}_{k+1} - \text{FPR}_k\right)
 \end{equation}
 
 % ==============================================================================
@@ -277,35 +300,43 @@ The ROC curve is constructed by sweeping decision threshold $\tau \in [0, 1]$ ac
 \section{Experimental Results and Empirical Analysis}
 \label{sec:results}
 
-Experiments were conducted on the benchmark Credit Card Fraud Detection dataset from Kaggle, comprising 284,807 transactions recorded by European cardholders in September 2013.
+Empirical evaluations were performed on the ULB Kaggle Credit Card Fraud dataset comprising $284,807$ instances. 
 
-\subsection{Quantitative Results}
-Table~\ref{tab:results} summarizes the performance achieved on the held-out test split.
+\subsection{Single-Model Diagnostic Performance}
+Table~\ref{tab:results} summarizes the performance metrics of our from-scratch Logistic Regression model evaluated on the independent held-out test split ($N = 196$ balanced samples).
 
 \begin{table}[H]
     \centering
-    \caption{Single-Model Primary Metrics on Held-Out Test Set (Logistic Regression from Scratch)}
+    \caption{Performance Metrics on Held-Out Test Set (From-Scratch Implementation)}
     \label{tab:results}
     \begin{tabular}{lcc}
         \toprule
-        \textbf{Evaluation Metric} & \textbf{Value (From Scratch)} & \textbf{Operational Significance} \\
+        \textbf{Diagnostic Metric} & \textbf{Observed Empirical Value} & \textbf{Operational Interpretation} \\
         \midrule
-        Accuracy & $93.88\%$ & High overall correctness across balanced test distribution \\
-        Precision & $98.99\%$ & High confidence; only 1 false alarm across 87 legitimate samples \\
-        \textbf{Recall (Sensitivity)} & $\mathbf{89.91\%}$ & \textbf{Core fraud capture rate; detects 98 out of 109 fraudulent events} \\
-        F1-Score & $94.23\%$ & Harmonic equilibrium between detection and false alarms \\
-        Specificity & $98.85\%$ & Ability to correctly approve genuine cardholder charges \\
-        \textbf{ROC-AUC} & $\mathbf{0.9895}$ & \textbf{Outstanding discriminative capability across all thresholds} \\
+        Accuracy & $93.88\%$ & High overall fidelity across the balanced test split \\
+        Precision & $98.99\%$ & High positive predictive value; only 1 false alarm \\
+        \textbf{Recall (Sensitivity)} & $\mathbf{89.91\%}$ & \textbf{Primary security metric: detects 98 of 109 fraud events} \\
+        F1-Score & $94.23\%$ & Harmonic balance between precision and detection rate \\
+        Specificity & $98.85\%$ & Effective preservation of genuine customer charges \\
+        \textbf{ROC-AUC} & $\mathbf{0.9895}$ & \textbf{High class discriminability across decision boundaries} \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\subsection{Multi-Model Comparative Benchmark}
-To demonstrate model exploration and algorithmic variance, we evaluated four distinct machine learning paradigms implemented entirely from scratch in pure \texttt{NumPy}: (1) Logistic Regression, (2) Decision Tree via recursive Gini splitting, (3) Random Forest via bootstrap aggregating (bagging) with random feature subspaces, and (4) K-Nearest Neighbors via vectorized Euclidean distance. Table~\ref{tab:multimodel} summarizes the comparative results on the exact same held-out test split ($N=196$).
+\subsection{Cross-Paradigm Benchmark Evaluation}
+To examine model performance across diverse structural hypotheses, we implemented four distinct learning paradigms completely from scratch in pure NumPy:
+\begin{enumerate}
+    \item \textbf{Logistic Regression (Parametric Linear):} Optimized via batch gradient descent on BCE loss.
+    \item \textbf{Decision Tree (Non-Parametric Partitioning):} Recursive binary splitting based on Gini impurity minimization without recursion depth libraries.
+    \item \textbf{Random Forest (Ensemble Bagging):} Bootstrap aggregation over parallel decision trees with randomized feature subspace selection.
+    \item \textbf{K-Nearest Neighbors (Instance-Based Metric):} Vectorized pairwise Euclidean distance calculation for neighborhood voting ($k = 5$).
+\end{enumerate}
+
+Table~\ref{tab:multimodel} summarizes the comparative results evaluated on identical held-out test samples.
 
 \begin{table}[H]
     \centering
-    \caption{Grand Benchmark Across Four Machine Learning Paradigms (All Built from Scratch)}
+    \caption{Multi-Model Comparative Performance (All Models Implemented from Scratch)}
     \label{tab:multimodel}
     \begin{tabular}{lccccc}
         \toprule
@@ -313,60 +344,47 @@ To demonstrate model exploration and algorithmic variance, we evaluated four dis
         \midrule
         \textbf{Logistic Regression (Scratch)} & $\mathbf{93.88\%}$ & $\mathbf{98.99\%}$ & $89.91\%$ & $94.23\%$ & $\mathbf{0.9895}$ \\
         Decision Tree (Gini Partitioning) & $93.88\%$ & $98.02\%$ & $\mathbf{90.83\%}$ & $\mathbf{94.29\%}$ & N/A \\
-        Random Forest (Ensemble Bagging) & $92.35\%$ & $97.96\%$ & $88.07\%$ & $92.75\%$ & $0.9743$ \\
+        Random Forest (Bagging Ensemble) & $92.35\%$ & $97.96\%$ & $88.07\%$ & $92.75\%$ & $0.9743$ \\
         K-Nearest Neighbors ($k=5$) & $92.86\%$ & $98.97\%$ & $88.07\%$ & $93.20\%$ & $0.9638$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\subsection{Loss Convergence Trajectory}
-The model was trained for 1,200 iterations of Batch Gradient Descent with learning rate $\alpha = 0.1$ and $L_2$ regularization $\lambda = 0.01$. The training loss decreased monotonically from an initial value of $\approx 0.693$ ($\ln 2$, corresponding to zero initial weights) to an asymptote below $0.22$, confirming smooth, stable gradient updates.
+\subsection{Optimization Convergence Dynamics}
+The logistic regression engine was trained for $1,200$ iterations using learning rate $\alpha = 0.1$ and $L_2$ regularization penalty $\lambda = 0.01$. The loss trajectory decreased smoothly from an initial state of $\mathcal{L}_0 \approx 0.693$ ($\ln 2$, matching zero initial weights) to an asymptotic value below $0.22$. This monotonic reduction confirms proper gradient conditioning and step-size stability.
 
-\subsection{Threshold Tuning and the Business Trade-off}
-In financial fraud systems, the cost matrix is heavily asymmetric:
+\subsection{Operational Threshold Calibration}
+Standard classification models apply a default probability cut-off of $\tau = 0.50$. In financial transaction auditing, financial institutions calibrate $\tau$ to balance fraud capture against customer friction:
 \begin{itemize}
-    \item \textbf{Cost of False Negative ($C_{\text{FN}}$):} High financial liability from reimbursing unrecovered stolen funds and regulatory penalties.
-    \item \textbf{Cost of False Positive ($C_{\text{FP}}$):} Low marginal cost involving an automated SMS prompt or temporary verification alert to the cardholder.
-\end{itemize}
-
-By varying the classification threshold $\tau$, financial institutions can tune the operating point along the Precision-Recall frontier:
-\begin{itemize}
-    \item Setting $\tau = 0.35$ increases Recall to over $95\%$, catching virtually all fraudulent charges while accepting a modest rise in false alarms.
-    \item Setting $\tau = 0.70$ prioritizes customer friction reduction by increasing Precision, but risks letting subtle fraud attempts slip through undetected.
+    \item \textbf{High-Recall Configuration ($\tau = 0.35$):} Elevates fraud detection sensitivity to over $95\%$. This setting is appropriate for high-value or cross-border transactions where undetected loss outweighs secondary review overhead.
+    \item \textbf{Conservative Friction Configuration ($\tau = 0.70$):} Prioritizes customer convenience by minimizing false alarms ($FP \to 0$), suitable for low-value daily payment transactions.
 \end{itemize}
 
 % ==============================================================================
-% SECTION 5: CONCLUSION & FUTURE WORK
+% SECTION 5: CONCLUSION & ACADEMIC REFLECTION
 % ==============================================================================
-\section{Conclusion and Future Work}
+\section{Conclusion and Academic Reflection}
 \label{sec:conclusion}
 
-This project successfully implemented a complete end-to-end Machine Learning pipeline for credit card fraud detection entirely from first principles using pure NumPy. By strictly avoiding pre-packaged classification routines, every stage---from mathematical cross-entropy minimization, analytical gradient calculations, and numerical stability mechanisms to data scaling, class balancing, and trapezoidal ROC integration---was explicitly coded and verified.
+This project realized a complete, mathematically derived machine learning workflow for credit card fraud detection entirely from first principles using pure NumPy. By explicitly constructing each mathematical component---from the derivation of the Bernoulli log-likelihood and analytical gradient vectors to numerical overflow clipping, custom train-test partitioning, and trapezoidal ROC integration---the pipeline achieves algorithmic clarity without reliance on external machine learning packages.
 
-The resulting scratch model achieved a high ROC-AUC of $0.965$ and a Recall of $90.8\%$, demonstrating that lightweight, foundational statistical learning models provide high diagnostic power and explainability for mission-critical financial applications.
-
-\subsection{Future Directions}
-\begin{itemize}
-    \item \textbf{Cost-Sensitive Loss Functions:} Incorporating transaction dollar value directly into the cross-entropy objective to minimize net dollar loss rather than raw misclassification counts.
-    \item \textbf{Online Stochastic Updates:} Transitioning from batch gradient descent to mini-batch or online gradient descent for adaptive streaming transaction environments.
-    \item \textbf{Multi-Class Categorization:} Extending scratch implementations to classify distinct fraud typologies (e.g., account takeover, card-not-present fraud, synthetic identity fraud).
-\end{itemize}
+The primary from-scratch model achieved an ROC-AUC of $0.9895$ and a fraud Recall of $89.91\%$, demonstrating that foundational, interpretable statistical algorithms provide strong predictive reliability for financial security tasks.
 
 % ==============================================================================
 % REFERENCES
 % ==============================================================================
 \begin{thebibliography}{99}
 \bibitem{dalpozzolo2015}
-A. Dal Pozzolo, O. Caelen, R. A. Johnson, and G. Bontempi, ``Calibrating Probability with Undersampling for Unbalanced Classification,'' in \emph{IEEE Symposium Series on Computational Intelligence}, 2015, pp. 159--166.
+A.~Dal Pozzolo, O.~Caelen, R.~A.~Johnson, and G.~Bontempi, ``Calibrating Probability with Undersampling for Unbalanced Classification,'' in \emph{IEEE Symposium Series on Computational Intelligence}, 2015, pp. 159--166.
 
 \bibitem{hastie2009}
-T. Hastie, R. Tibshirani, and J. Friedman, \emph{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}, 2nd ed. New York: Springer, 2009.
+T.~Hastie, R.~Tibshirani, and J.~Friedman, \emph{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}, 2nd ed. New York: Springer, 2009.
 
 \bibitem{goodfellow2016}
-I. Goodfellow, Y. Bengio, and A. Courville, \emph{Deep Learning}. Cambridge, MA: MIT Press, 2016.
+I.~Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}. Cambridge, MA: MIT Press, 2016.
 
 \bibitem{fawcett2006}
-T. Fawcett, ``An Introduction to ROC Analysis,'' \emph{Pattern Recognition Letters}, vol. 27, no. 8, pp. 861--874, 2006.
+T.~Fawcett, ``An Introduction to ROC Analysis,'' \emph{Pattern Recognition Letters}, vol. 27, no. 8, pp. 861--874, 2006.
 \end{thebibliography}
 
 \end{document}

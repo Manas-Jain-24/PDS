@@ -1,32 +1,44 @@
 # Course Rubrics & Academic Requirements
 
-This directory stores the official course rubrics for the **Python for Data Science (PDS)** capstone project at IIIT Sri City.
+This directory stores the official course rubrics for the **Python for Data Science (PDS)** capstone project at **Indian Institute of Information Technology Sri City, Chittoor** (Monsoon 2026).
 
 ---
 
 ## 1. Grade Weight & Timeline
 
 - **Project Contribution:** 50 Marks (20% of final course grade).
-- **Final Submission Deadline:** November 15, 2026.
+- **Group Identifier:** `Project_13`
+- **Assigned Dataset:** Kaggle Credit Card Fraud Detection benchmark (ULB MLG dataset).
+- **Final Submission Deadline:** November 15, 2026, 18:00 hours (Hard deadline).
 - **Deliverables:**
-  - `report.pdf`: Academic project report submitted via Turnitin (plagiarism check).
-  - `Project_XXX.zip`: Clean zip archive containing code, notebooks, dataset instructions, and report.
+  - `Project_13.zip`: A single zip file containing exactly **two files**:
+    1. Implemented code as a separate file (`fraud_detection.ipynb`).
+    2. Final report (`report.pdf`).
+  - `report.pdf`: Academic project report submitted via Google Classroom (Originality Report check).
 
 ---
 
 ## 2. Rubric Evaluation Matrix (50 Marks)
 
-| Dimension | Weight | Course Requirement | Our Project Implementation |
-| :--- | :--- | :--- | :--- |
-| **Problem Statement & Theory** | 10% (5 Marks) | Rigorous mathematical and theoretical foundation of fraud detection, imbalanced data, and loss metrics. | Complete mathematical derivation in `report/report.tex`, `report/project_walkthrough_guide.md`, and notebooks. |
-| **From-Scratch Implementation** | 20% (10 Marks) | Strict rule: core models, loss functions, and optimization built directly from first principles in NumPy without ML libraries. | All 7 models (Logistic Regression, Cost-Sensitive LogReg, Deep MLP, GBDT, Isolation Forest, Soft-Voting, Stacking) implemented in pure NumPy. |
-| **Experimental Analysis & Results** | 10% (5 Marks) | Comprehensive empirical evaluation, confusion matrices, ROC-AUC, thresholding, and comparative tables. | Single-split, 100-run, and 1,000-run Monte Carlo simulations with exact empirical distributions, CI95 margins, and Value-at-Risk ($VaR_{99\%}$). |
-| **LaTeX Report & Formatting** | 10% (5 Marks) | Professional LaTeX document with title page, student contributions table, formal math formatting, and citations. | Complete LaTeX report in `report/report.tex` following IEEE/ACM style with formal equations and contribution table. |
-| **Oral Defense / Viva & Demo** | 50% (25 Marks) | Clear explanation of architectural trade-offs, code walkthrough, and practical insights. | Ready-to-demo Jupyter notebooks (`notebooks/fraud_detection.ipynb`, `notebooks/fraud_detection_master_capstone.ipynb`) and empirical charts. |
+| Rubric Component | Official Weight | Marks | Academic Requirement | Our Implementation |
+| :--- | :---: | :---: | :--- | :--- |
+| **2(a) Understanding the Theory** | 10% | 10 Marks | Rigorous mathematical and theoretical foundation of fraud detection, imbalanced data, and loss metrics. | Complete mathematical derivation in `report/report.tex`, `report/project_walkthrough_guide.md`, and notebooks. |
+| **2(b) Implementation of the Project** | 20% | 20 Marks | Strict rule: core models, loss functions, and optimization built directly from first principles in pure NumPy without ML library packages (`scikit-learn`, `xgboost`, `imblearn`). Submitted **only as a Python notebook**. | Native from-scratch implementation of Logistic Regression, Cost-Sensitive LogReg, Decision Tree, Random Forest, and KNN in pure NumPy. |
+| **2(c) Experimental Results** | 10% | 10 Marks | Comprehensive empirical evaluation on recommended Kaggle dataset: confusion matrices, ROC-AUC, thresholding, and comparative tables. | Quantitative evaluation on held-out test split, convergence trajectories, threshold trade-offs, and multi-model benchmark. |
+| **2(d) Report Submission (Mandatory)** | 10% | 10 Marks | Professional LaTeX document with title page, team details, date of submission, individual contributions table, formal math, and citations. | Complete LaTeX report in `report/report.tex` following formal formatting with team metadata for Group 13. |
+| **Total Evaluation** | **50% (of project weight)** | **50 Marks** | **Overall Project Evaluation (20% weightage towards final course marks)** | **Fully compliant with all 4 components.** |
 
 ---
 
-## 3. Rubric Files
+## 3. Team Details (Group 13)
 
-- `PDS_Project Rubrics.pdf`: Official PDF rubric document detailing marking guidelines.
-- `PDS_Project_Rubrics.pdf`: Exact copy retained for redundancy.
+- **Kanishk Gorana (Group Lead):** S20240030378 — `kanishk.g24@iiits.in`
+- **Manas Vinod Jain:** S20240030387 — `manas.v24@iiits.in`
+- **Almaas Chaudhary:** S20240030349 — `almaaschaudhary.s24@iiits.in`
+- **Kumthe Kartik Sanjay:** S20240030383 — `kartiksanjay.k24@iiits.in`
+
+---
+
+## 4. Official Rubric Document
+
+- `PDS_Project Rubrics.pdf`: Official IIIT Sri City rubric document detailing marking guidelines.
